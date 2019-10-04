@@ -64,7 +64,6 @@ minetest.register_globalstep(function(dtime)
                     end
                     if is_weather then
                         print("initializing weather sequence dumbass")
-                        --players[name].current_weather = weather.name
                         for i = 1, #weather.texture do
                             minetest.add_particlespawner({
                                 time = UPDATE_INTERVAL,
