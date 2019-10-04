@@ -12,7 +12,7 @@ minetest.register_on_leaveplayer(function(obj, timed_out)
 end)
 
 function weather.register_weather(name, weather_data)
-    if not weather_data or not weather_data.temp or not weather_data.humid or not weather_data.texture then
+    if not weather_data or not weather_data.temp or not weather_data.humid or not weather_data.textures then
         return
     end
 
@@ -64,10 +64,10 @@ minetest.register_globalstep(function(dtime)
                     end
                     if is_weather then
                         print("initializing weather sequence dumbass")
-                        for i = 1, #weather.texture do
+                        for i = 1, #weather.textures do
                             minetest.add_particlespawner({
                                 time = UPDATE_INTERVAL,
-                                amount = math.floor(weather.amount / #weather.texture),
+                                amount = math.floor(weather.amount / #weather.textures),
                                 minpos = {x = weather.area_size, y = weather.elev_range[1], z = weather.area_size},
                                 maxpos = {x = -weather.area_size, y = weather.elev_range[2], z = -weather.area_size},
                                 minvel = {x = -weather.horz_vel_range, y = weather.vert_vel_range[1] , z = -weather.horz_vel_range},
@@ -80,7 +80,7 @@ minetest.register_globalstep(function(dtime)
                                 collision_removal = true,
                                 attached = player,
                                 vertical = weather.vertical,
-                                texture = weather.texture,
+                                texture = weather.textures[i],
                                 playername = player:get_player_name(),
                             })
                         end
