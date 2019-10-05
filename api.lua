@@ -1,6 +1,8 @@
-local UPDATE_INTERVAL = 5
-local WATER_LEVEL = 0
-local CLOUD_LEVEL = 120
+local settings = minetest.settings
+
+local UPDATE_INTERVAL = tonumber(settings:get("update_interval")) or 5
+local WATER_LEVEL = tonumber(settings:get("water_level")) or 0
+local CLOUD_LEVEL = tonumber(settings:get("cloud_level")) or 120
 
 local players = {}
 weather = {}

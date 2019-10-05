@@ -1,0 +1,3 @@
+update_interval (time in seconds that weather will be updated per-player) float 5
+water_level (depth at which weather will no longer appear if the particle spawner would be below this depth) float 0
+cloud_level (height at with weather will no longer appear if the particle spawner would be above this height) float 120
